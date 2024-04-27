@@ -9,12 +9,19 @@ import {
 
 
 import './index.css'
+import Home from './pages/Home/Home.jsx';
+import Root from './layout/Root.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element:<Root></Root>,
+    children:[{
+      path: "/",
+    element:<Home></Home>,
+    }
+    ]
   },
 ]);
 
