@@ -75,15 +75,15 @@ const AddTouristsSpot = () => {
                             {/* set 3 */}
                             {/* set 2 */}
                             <div className='flex gap-16 my-10 rounded-sm'>
+                            <label className="input input-bordered flex items-center gap-2">
+                                
+                                <input type="text" className="grow" placeholder="Country Name"name='country_Name' />
+                            </label>
 
                             <label className="input input-bordered flex items-center gap-2">
                                 <input type="text" className="grow" placeholder="Tourists Spot Name" name='tourists_spot_name' />
                                 <hr />
                     
-                            </label>
-                            <label className="input input-bordered flex items-center gap-2">
-                                
-                                <input type="text" className="grow" placeholder="Country Name"name='country_Name' />
                             </label>
                             </div>
                             {/* set 3 */}

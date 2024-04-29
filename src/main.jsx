@@ -17,6 +17,8 @@ import ShowList from './pages/Show List/ShowList.jsx';
 import LogIn from './pages/Log-in/LogIn.jsx';
 import Register from './pages/Register/Register.jsx';
 import AuthProvider from './pages/Provider/AuthProvider.jsx';
+import ViewDetailes from './pages/All Tourists Spot/ViewDetailes.jsx';
+import Update from './pages/Show List/Update.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
     {
       path: "/register",
       element: <Register></Register>,
+    },
+    {
+      path: "/viewDetails/:id",
+      element: <ViewDetailes></ViewDetailes>,
+    },
+    {
+      path: "/showList/update/:id",
+      element: <Update></Update>,
     },
     ]
   },
