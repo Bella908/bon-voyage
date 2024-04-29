@@ -1,10 +1,19 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navber = () => {
+  const {user , logOut} = useContext(AuthContext)
+  const handleSignOut = () =>{
+    logOut()
+    .then()
+    .catch()
+      }
+
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-white bg-opacity-50">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,8 +37,8 @@ const Navber = () => {
     <a className="btn btn-ghost text-xl">BON-Voyage </a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-    <li><NavLink to ="/" ><a>Home</a></NavLink></li>
+    <ul className="menu menu-horizontal px-1 ">
+    <li ><NavLink to ="/" ><a>Home</a></NavLink></li>
     <li><NavLink to ="/allTouristsSpot" ><a>All Tourists Spot</a></NavLink></li>
     <li><NavLink to ="/addTouristsSpot" ><a> Add Tourists Spot</a></NavLink></li>
     <li><NavLink to ="/showList" ><a>My List </a></NavLink></li>
@@ -45,11 +54,38 @@ const Navber = () => {
       </li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+
+    {
+      user? <>
+          <span></span>
+      <button onClick={handleSignOut} className="btn mx-2">Sign Out</button>
+
+      <div className="avata " >
+  <div className="w-12" >
+    <div className="tooltip tooltip-bottom" data-tip={user.displayName}> 
+
+    <img src={user.photoURL} className="rounded-full" />
+    
+    </div>
   </div>
 </div>
+      </>
+      :
+      <div className="navbar-end gap-5">
+    <Link to="/logIn">
+    <a className="btn">Sign-In</a>
+    </Link>
+    <Link to="/register">
+    <a className="btn">Sign-Up</a>
+    </Link>
         </div>
+  
+
+    }
+  </div>
+
+</div>
+        
     );
 };
 

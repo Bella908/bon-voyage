@@ -1,6 +1,8 @@
 import Lottie from 'lottie-react';
 import React from 'react';
 import Car from '../Show List/Car.json'
+import Swal from 'sweetalert2'
+
 const AddTouristsSpot = () => {
     const handleAddTourist = e => {
         e.preventDefault();
@@ -21,7 +23,26 @@ const AddTouristsSpot = () => {
 
             console.log(newSpot)
 
-        
+        // send data to the server
+        fetch('http://localhost:5000/newSpot',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newSpot)
+        })
+        .then(res => res.json()
+    .then(data =>{
+        console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                title: 'Success!',
+                text: 'New Spot added successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+        }
+    }))
 
         
     }

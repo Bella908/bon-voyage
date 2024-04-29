@@ -16,36 +16,38 @@ import AddTouristsSpot from './pages/Add Tourists Spot/AddTouristsSpot.jsx';
 import ShowList from './pages/Show List/ShowList.jsx';
 import LogIn from './pages/Log-in/LogIn.jsx';
 import Register from './pages/Register/Register.jsx';
+import AuthProvider from './pages/Provider/AuthProvider.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Root></Root>,
-    children:[{
+    element: <Root></Root>,
+    children: [{
       path: "/",
-    element:<Home></Home>,
-  },
-{
-  path: "/allTouristsSpot",
-element:<AllTouristsSpot></AllTouristsSpot>,
-},
-{
-  path: "/addTouristsSpot",
-element:<AddTouristsSpot></AddTouristsSpot>,
-},
-{
-  path: "/showList",
-element:<ShowList></ShowList>,
-},
-{
-  path: "/logIn",
-element:<LogIn></LogIn>,
-},
-{
-  path: "/register",
-element:<Register></Register>,
-},
+      element: <Home></Home>,
+    },
+    {
+      path: "/allTouristsSpot",
+      element: <AllTouristsSpot></AllTouristsSpot>,
+      loader: () => fetch('http://localhost:5000/newSpot')
+    },
+    {
+      path: "/addTouristsSpot",
+      element: <AddTouristsSpot></AddTouristsSpot>,
+    },
+    {
+      path: "/showList",
+      element: <ShowList></ShowList>,
+    },
+    {
+      path: "/logIn",
+      element: <LogIn></LogIn>,
+    },
+    {
+      path: "/register",
+      element: <Register></Register>,
+    },
     ]
   },
 ]);
@@ -53,6 +55,8 @@ element:<Register></Register>,
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
