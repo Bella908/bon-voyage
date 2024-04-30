@@ -1,10 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navber = () => {
-  const {user , logOut} = useContext(AuthContext)
+  const {user , logOut} = useContext(AuthContext);
+  const [theme ,setTheme] = useState('light')
+
+
+  useEffect(() =>{
+    localStorage.setItem('theme',theme)
+    const localTheme = localStorage.getItem('theme')
+    document.querySelector('html').setAttribute('data-theme' ,localTheme)
+  },[theme])
+
+  const handleToggle = (e) =>{
+   if(e.target.checked){
+    setTheme('coffee')
+   }
+   else{
+    setTheme('light')
+   }
+  }
   const handleSignOut = () =>{
     logOut()
     .then()
@@ -40,7 +57,7 @@ const Navber = () => {
       
     </ul>
   </div>
-  <input type="checkbox" value="synthwave" className="toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2"/>
+  <input  onChange={handleToggle} type="checkbox"  className="toggle theme-controller"/>
 
     {
       user? <>
