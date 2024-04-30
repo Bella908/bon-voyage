@@ -19,6 +19,7 @@ import Register from './pages/Register/Register.jsx';
 import AuthProvider from './pages/Provider/AuthProvider.jsx';
 import ViewDetailes from './pages/All Tourists Spot/ViewDetailes.jsx';
 import Update from './pages/Show List/Update.jsx';
+import ProtectedRout from './pages/Provider/ProtectedRout.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,10 @@ const router = createBrowserRouter([
     },
     {
       path: "/showList",
-      element: <ShowList></ShowList>,
+      element:
+      <ProtectedRout>
+<ShowList></ShowList>,
+      </ProtectedRout> 
     },
     {
       path: "/logIn",
@@ -52,11 +56,15 @@ const router = createBrowserRouter([
     },
     {
       path: "/viewDetails/:id",
-      element: <ViewDetailes></ViewDetailes>,
+      element:<ProtectedRout>
+        <ViewDetailes></ViewDetailes>,
+      </ProtectedRout> 
     },
     {
       path: "/showList/update/:id",
-      element: <Update></Update>,
+      element: <ProtectedRout>
+        <Update></Update>,
+      </ProtectedRout>
     },
     ]
   },
