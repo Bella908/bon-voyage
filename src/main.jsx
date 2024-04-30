@@ -20,12 +20,14 @@ import AuthProvider from './pages/Provider/AuthProvider.jsx';
 import ViewDetailes from './pages/All Tourists Spot/ViewDetailes.jsx';
 import Update from './pages/Show List/Update.jsx';
 import ProtectedRout from './pages/Provider/ProtectedRout.jsx';
+import ErrorPage from './ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [{
       path: "/",
       element: <Home></Home>,
@@ -37,7 +39,9 @@ const router = createBrowserRouter([
     },
     {
       path: "/addTouristsSpot",
-      element: <AddTouristsSpot></AddTouristsSpot>,
+      element: <ProtectedRout>
+        <AddTouristsSpot></AddTouristsSpot>,
+      </ProtectedRout>
     },
     {
       path: "/showList",
