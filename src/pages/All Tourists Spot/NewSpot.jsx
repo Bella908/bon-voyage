@@ -37,7 +37,7 @@ const NewSpot = ({ newSpot }) => {
           <div className="flex justify-between">
             <Link to={`/viewDetails/${_id}`}>
 
-              <button className="btn bg-red-500 text-white font-lora text-[16px]">View Details</button>
+              <button className="btn bg-orange-400 text-white font-lora text-[16px]">View Details</button>
             </Link>
 
             <div className="flex items-center gap-2">

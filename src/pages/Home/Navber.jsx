@@ -24,13 +24,7 @@ const Navber = () => {
     <li><NavLink to ="/allTouristsSpot" ><a>All Tourists Spot</a></NavLink></li>
     <li><NavLink to ="/addTouristsSpot" ><a> Add Tourists Spot</a></NavLink></li>
     <li><NavLink to ="/showList" ><a>My List </a></NavLink></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
+        
        
       </ul>
     </div>
@@ -43,22 +37,14 @@ const Navber = () => {
     <li><NavLink to ="/addTouristsSpot" ><a> Add Tourists Spot</a></NavLink></li>
     <li><NavLink to ="/showList" ><a>My List </a></NavLink></li>
 
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
+      
     </ul>
   </div>
 
     {
       user? <>
           <span></span>
-      <button onClick={handleSignOut} className="btn mx-2">Sign Out</button>
+      <button onClick={handleSignOut} className="btn mx-2">Log Out</button>
 
       <div className="avata " >
   <div className="w-12" >
@@ -73,10 +59,10 @@ const Navber = () => {
       :
       <div className="navbar-end gap-5">
     <Link to="/logIn">
-    <a className="btn">Sign-In</a>
+    <a className="btn bg-orange-300 text-slate-50">Log-In</a>
     </Link>
     <Link to="/register">
-    <a className="btn">Sign-Up</a>
+    <a className="btn bg-orange-600 text-slate-50">Register</a>
     </Link>
         </div>
   

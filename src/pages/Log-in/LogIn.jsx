@@ -62,7 +62,7 @@ const LogIn = () => {
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12 bg-white bg-opacity-30">
           <div className=" flex flex-col items-center">
             <div className="text-center">
-              <h1 className="text-2xl xl:text-4xl font-extrabold text-blue-900">
+              <h1 className="text-2xl xl:text-4xl font-extrabold text-orange-600">
                 Sign-In
               </h1>
 
@@ -84,7 +84,7 @@ const LogIn = () => {
                   placeholder="Password" name='password'
                 />
              
-                <button className="mt-5 tracking-wide font-semibold bg-blue-900 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                <button className="mt-5 tracking-wide font-semibold bg-orange-600 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"
@@ -135,7 +135,7 @@ const LogIn = () => {
                   Do not have a account?{" "}
                  <Link to="/register">
                  
-                    <span className="text-blue-900 font-semibold">Sign up</span>
+                    <span className="text-blue-900  font-semibold">Sign up</span>
                  </Link>
                   
                 </p>
