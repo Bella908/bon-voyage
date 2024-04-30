@@ -10,7 +10,7 @@ const ShowList = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/showList/${user?.email}`)
+        fetch(`https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/showList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data);
@@ -30,7 +30,7 @@ const ShowList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // If confirmed, proceed with deletion
-                fetch(`http://localhost:5000/showList/delete/${id}`, {
+                fetch(`https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/showList/delete/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

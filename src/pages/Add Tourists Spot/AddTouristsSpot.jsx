@@ -26,7 +26,7 @@ const AddTouristsSpot = () => {
         console.log(newSpot)
 
         // send data to the server
-        fetch('http://localhost:5000/newSpot', {
+        fetch('https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/newSpot', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
