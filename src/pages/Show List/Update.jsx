@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import Car from '../Show List/Car.json'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -12,20 +13,20 @@ const Update = () => {
 
 
      useEffect(() =>{
-        fetch(`http://localhost:5000/showList/update/${id}`)
+         fetch(`http://localhost:5000/showList/update/${id}`)
         .then(res => res.json())
         .then(data =>{
             setSpot(data)
-            consol.log(data)
+          
         })
     },[id])
 
 
-    const handleUpdate =( )=>{
-        e.preventDefault();
+    const handleUpdate = (e) => {
+        e.preventDefault(); // Add e parameter and preventDefault() here
+    
         const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
+    
         const tourists_spot_name = form.tourists_spot_name.value;
         const country_Name = form.country_Name.value;
         const location = form.location.value;
@@ -35,11 +36,39 @@ const Update = () => {
         const travel_time = form.travel_time.value;
         const totaVisitorsPerYear = form.totaVisitorsPerYear.value;
         const image = form.image.value;
-        const updteSpot ={name , email ,tourists_spot_name,country_Name,location ,average_cost,short_description,seasonality,travel_time
-            ,totaVisitorsPerYear,image}
-      fetch(`http://localhost:5000/showList/update/${_id}`)
-    }
+        const updteSpot = {
+            tourists_spot_name,
+            country_Name,
+            location,
+            average_cost,
+            short_description,
+            seasonality,
+            travel_time,
+            totaVisitorsPerYear,
+            image
+        };
+    
+        fetch(`http://localhost:5000/showList/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updteSpot)
+        })
+        .then(res => res.json()
+    .then(data =>{
+        if(data.modifiedCount >0){
+            Swal.fire({
+                title: 'Success!',
+                text: 'Update successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+        }
 
+    }))
+    }
+       
     return (
         <div>
           <div className="container mx-auto px-4 py-8">
@@ -49,22 +78,15 @@ const Update = () => {
                        <Lottie animationData={Car} className="w-2/3" />
                    </div>
                    <div className="rounded-lg flex items-center justify-center ">
-                      <form onSubmit={handleUpdate} >
+                      <form  onSubmit={handleUpdate}>
                            {/* set 1 */}
                            <div>
                            <h2 className="text-3xl font-bold my-6 text-center text-orange-300">Update</h2>
                            </div>
                            <div className='flex gap-16 my-10 rounded-sm'>
 
-                           <label className="input input-bordered  flex items-center gap-2">
-                               <input type="text" className="grow-0" placeholder="Name" name='name' />
-                               <hr />
-                   
-                           </label>
-                           <label className="input input-bordered  flex items-center gap-2">
-                               
-                               <input type="text" className="grow" placeholder="Email" name='email' />
-                           </label>
+                           
+                           
                            </div>
                            {/* set 3 */}
                            {/* set 2 */}
@@ -139,6 +161,5 @@ const Update = () => {
            </div>
         </div>
     );
-};
-
+}
 export default Update;
