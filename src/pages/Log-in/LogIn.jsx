@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter';
 
 
 const LogIn = () => {
@@ -63,7 +64,16 @@ const LogIn = () => {
           <div className=" flex flex-col items-center">
             <div className="text-center">
               <h1 className="text-2xl xl:text-4xl font-extrabold text-orange-600">
-                Sign-In
+              <Typewriter
+                        words={['  Sign-In']}
+                        loop={false}
+                        cursor
+                        cursorStyle='_'
+                        typeSpeed={70}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    />
+              
               </h1>
 
             </div>

@@ -1,4 +1,5 @@
-import React from 'react';
+
+
 
 const Banner = () => {
     return (
@@ -10,6 +11,10 @@ const Banner = () => {
       <a href="#slide4" className="btn btn-circle">❮</a> 
       <a href="#slide2" className="btn btn-circle">❯</a>
     </div>
+    <div className="absolute bottom-5 left-0 right-0 text-center text-white">
+                <h2 className="text-3xl font-bold">Bon-Voyage</h2>
+                <p className="mt-2">Make your trip with us</p>
+            </div>
   </div> 
   <div id="slide2" className="carousel-item relative w-full">
     <img src="https://images.unsplash.com/photo-1588387695597-87bfcf4cd1bf?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="w-full" />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import { useLoaderData } from 'react-router-dom';
 import NewSpot from './NewSpot';
-
+import { Typewriter } from 'react-simple-typewriter'
 
 
 
@@ -11,6 +11,7 @@ const AllTouristsSpot = () => {
 
 
     const [spots, setNewSpots] = useState([]);
+    const [sortOrder, setSortOrder] = useState('asc');
 
     useEffect(() => {
         // Function to fetch data
@@ -39,17 +40,47 @@ const AllTouristsSpot = () => {
         };
     }, [])
 
+    const handleSortChange = (e) => {
+        setSortOrder(e.target.value);
+    };
+
+    // Sort spots based on average_cost
+    const sortedSpots = [...spots].sort((a, b) => {
+        if (sortOrder === 'asc') {
+            return a.average_cost - b.average_cost;
+        } else {
+            return b.average_cost - a.average_cost;
+        }
+    });
 
 
     return (
         <div>
             <div className='my-7'>
-                <h4 className='text-3xl text-center'>Tourists Sports</h4>
+            <h4 className='text-3xl text-center'>
+                    <Typewriter
+                        words={['Tourists Sports']}
+                        loop={false}
+                        cursor
+                        cursorStyle='_'
+                        typeSpeed={70}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    />
+                </h4>
+              
+                <div className="flex justify-center mt-4">
+                    <label htmlFor="sortOrder">Sort by Average Cost:</label>
+                    <select id="sortOrder" className="ml-2 p-2" onChange={handleSortChange}>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
             </div>
             <div  className='grid grid-cols-1 lg:grid-cols-3 gap-3 my-4'>
 
             {
-                spots.map(spots => <NewSpot key={spots._id} newSpot={spots} ></NewSpot>)
+                sortedSpots.map(spots => <NewSpot key={spots._id} newSpot={spots} ></NewSpot>)
             }
             </div>
            
