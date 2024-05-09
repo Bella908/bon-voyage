@@ -10,7 +10,7 @@ const ShowList = () => {
 
 
     useEffect(() => {
-        fetch(`https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/showList/${user?.email}`)
+        fetch(`http://localhost:5000/showList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data);
@@ -30,7 +30,7 @@ const ShowList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // If confirmed, proceed with deletion
-                fetch(`https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/showList/delete/${id}`, {
+                fetch(`http://localhost:5000/showList/delete/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -87,18 +87,7 @@ const ShowList = () => {
                     </tbody>
                 </table>
             </div>
-            {/* {
-                item?.map(p => (
-                    <div key={p._id}>
-                        <h1>name : {p.location}</h1>
-
-                        <Link to={`/showList/update/${p._id}`}>
-                            <button>Update</button>
-                        </Link>
-                        <button onClick={() => handleDelete(p._id)}>Delete</button>
-                    </div>
-                ))
-            } */}
+        
         </div>
     );
 };

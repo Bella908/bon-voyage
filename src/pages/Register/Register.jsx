@@ -42,6 +42,7 @@ createUser(email,password,photoURL)
   updateProfile(result.user,{
     displayName : name,
     
+    
   })
   .then(() =>console.log(updated))
   .catch((error) =>{

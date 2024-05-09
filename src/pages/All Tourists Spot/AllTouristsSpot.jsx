@@ -18,7 +18,7 @@ const AllTouristsSpot = () => {
         const fetchData = async () => {
             try {
                 // Fetch data from an API endpoint
-                const response = await fetch('https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/newSpot');
+                const response = await fetch('http://localhost:5000/newSpot');
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

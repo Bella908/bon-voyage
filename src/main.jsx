@@ -21,6 +21,7 @@ import ViewDetailes from './pages/All Tourists Spot/ViewDetailes.jsx';
 import Update from './pages/Show List/Update.jsx';
 import ProtectedRout from './pages/Provider/ProtectedRout.jsx';
 import ErrorPage from './ErrorPage.jsx';
+import Countries from './pages/Home/Countries/Countries.jsx';
 
 
 const router = createBrowserRouter([
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
     {
       path: "/allTouristsSpot",
       element: <AllTouristsSpot></AllTouristsSpot>,
-      loader: () => fetch('https://bon-voyage-server-ql3x12mvy-mumtahinas-projects-ec97b8c1.vercel.app/newSpot')
+      loader: () => fetch('http://localhost:5000/newSpot')
     },
     {
       path: "/addTouristsSpot",
@@ -69,6 +70,11 @@ const router = createBrowserRouter([
       element: <ProtectedRout>
         <Update></Update>,
       </ProtectedRout>
+    },
+    {
+      path: "/contries",
+      element: <Countries></Countries>,
+      loader: () => fetch('http://localhost:5000/contries')
     },
     ]
   },
