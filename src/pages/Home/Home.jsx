@@ -3,7 +3,8 @@ import Banner from './Banner';
 import AllTouristsSpot from '../All Tourists Spot/AllTouristsSpot';
 import NewsLetter from './NewsLetter';
 import FAQ from './FAQ';
-import Countries from './Countries/Countries';
+import SubContries from './SubContries/SubContries';
+
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <AllTouristsSpot></AllTouristsSpot>
-            <Countries></Countries>
+            <SubContries></SubContries>
             <NewsLetter></NewsLetter>
             <FAQ></FAQ>
         </div>

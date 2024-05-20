@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NewSpot = ({ newSpot }) => {
 
   const { tourists_spot_name, average_cost, seasonality, travel_time
-    , totaVisitorsPerYear, image, _id } = newSpot;
+    , totaVisitorsPerYear, image, _id , country_Name } = newSpot;
 
 
   return (
@@ -21,7 +21,8 @@ const NewSpot = ({ newSpot }) => {
               <p className="">Travel Time</p>
               <p className="">Tota Visitors PerYear</p>
               <p className="">Seasonality</p>
-              <p className="">Average Cost
+              <p className="">Average Cost</p>
+              <p className="">Country
               </p>
             </div>
             <div>
@@ -29,6 +30,7 @@ const NewSpot = ({ newSpot }) => {
               <p>{totaVisitorsPerYear}</p>
               <p>{seasonality}</p>
               <p>{average_cost}</p>
+              <p>{country_Name}</p>
 
             </div>
           </div>

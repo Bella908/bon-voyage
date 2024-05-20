@@ -18,6 +18,7 @@ const AddTouristsSpot = () => {
         const travel_time = form.travel_time.value;
         const totaVisitorsPerYear = form.totaVisitorsPerYear.value;
         const image = form.image.value;
+        
         const newSpot = {
             name, email, tourists_spot_name, country_Name, location, average_cost, short_description, seasonality, travel_time
             , totaVisitorsPerYear, image

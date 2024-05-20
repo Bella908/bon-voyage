@@ -21,7 +21,7 @@ import ViewDetailes from './pages/All Tourists Spot/ViewDetailes.jsx';
 import Update from './pages/Show List/Update.jsx';
 import ProtectedRout from './pages/Provider/ProtectedRout.jsx';
 import ErrorPage from './ErrorPage.jsx';
-import Countries from './pages/Home/Countries/Countries.jsx';
+import SubContryCard from './pages/Home/SubContries/SubContryCard.jsx';
 
 
 const router = createBrowserRouter([
@@ -72,9 +72,9 @@ const router = createBrowserRouter([
       </ProtectedRout>
     },
     {
-      path: "/contries",
-      element: <Countries></Countries>,
-      loader: () => fetch('http://localhost:5000/contries')
+      path: "/countries/:country_Name",
+      element: <SubContryCard></SubContryCard>,
+    
     },
     ]
   },
