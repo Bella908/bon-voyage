@@ -8,7 +8,7 @@ const SubContryCard = () => {
     const [item, setItem] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/countries/${country_Name}`)
+        fetch(` https://bon-voyage-server-a69z3n71q-mumtahinas-projects-ec97b8c1.vercel.app/           countries/${country_Name}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data);

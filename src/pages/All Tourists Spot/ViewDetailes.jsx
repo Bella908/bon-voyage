@@ -9,7 +9,7 @@ const ViewDetailes = () => {
 
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/viewDetails/${id}`)
+        fetch(` https://bon-voyage-server-a69z3n71q-mumtahinas-projects-ec97b8c1.vercel.app/viewDetails/${id}`)
         .then(res => res.json())
         .then(data =>{
             setSpot(data)
