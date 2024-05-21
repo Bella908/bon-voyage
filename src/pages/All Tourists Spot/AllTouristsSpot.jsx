@@ -10,7 +10,7 @@ const AllTouristsSpot = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(' https://bon-voyage-server-a69z3n71q-mumtahinas-projects-ec97b8c1.vercel.app/ newSpot');
+                const response = await fetch('https://bon-voyage-server-gilt.vercel.app/newSpot');
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

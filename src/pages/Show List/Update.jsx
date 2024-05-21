@@ -13,7 +13,7 @@ const Update = () => {
 
 
      useEffect(() =>{
-         fetch(` https://bon-voyage-server-a69z3n71q-mumtahinas-projects-ec97b8c1.vercel.app/showList/update/${id}`)
+         fetch(`https://bon-voyage-server-gilt.vercel.app/showList/update/${id}`)
         .then(res => res.json())
         .then(data =>{
             setSpot(data)
@@ -48,7 +48,7 @@ const Update = () => {
             image
         };
     
-        fetch(` https://bon-voyage-server-a69z3n71q-mumtahinas-projects-ec97b8c1.vercel.app/showList/update/${id}`, {
+        fetch(`https://bon-voyage-server-gilt.vercel.app/showList/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
